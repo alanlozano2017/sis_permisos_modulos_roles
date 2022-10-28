@@ -5,7 +5,7 @@
 		private $intIdUsuario;
 		private $strUsuario;
 		private $strPassword;
-		private $strToken;
+
 
 		public function __construct()
 		{
@@ -35,7 +35,7 @@
 			p.apellidos,
 			p.telefono,
 			u.user_name,
-			p.nit,
+			
 			p.nombrefiscal,
 			p.direccionfiscal,
 			r.idrol,
