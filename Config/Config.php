@@ -35,7 +35,7 @@
 	define ('MUSUARIOS',"2");
 
 	define ('MMODULOS',"3");
-	define ('MPRODUCTOS',"4");
+	define ('MPERSONAS',"4");
 	define ('MPEDIDOS',"5");
 	define ('MCATEGORIAS',"6");
 

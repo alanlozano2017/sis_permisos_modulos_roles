@@ -34,6 +34,18 @@
         $view_modal = "Views/Template/Modals/{$nameModal}.php";
         require_once $view_modal;        
     }
+
+    function getViewRuta(string $nameView, $data)
+    {
+        $ruta_view = "Views/{$nameView}.php";
+        require_once $ruta_view;        
+    }
+    function getModel(string $nameModel)
+    {
+        $r_model = "Models/{$nameModel}.php";
+        require_once $r_model;        
+    }
+    
     function getFile(string $url, $data)
     {
         ob_start();
