@@ -115,12 +115,12 @@
 						$arrData[$i]['status'] = '<span class="badge badge-danger">Inactivo</span>';
 					}
 					if($_SESSION['permisosMod']['r']){
-						$btnView = '<button class="btn btn-info btn-sm btnViewUsuario" onClick="fntViewUsuario('.$arrData[$i]['idpersona'].')" title="Ver usuario"><i class="far fa-eye"></i></button>';
+						$btnView = '<button class="btn btn-info btn-sm btnViewUsuario" onClick="fntViewUsuario('.$arrData[$i]['dni'].')" title="Ver usuario"><i class="far fa-eye"></i></button>';
 					}
 					if($_SESSION['permisosMod']['u']){
 						if(($_SESSION['idUser'] == 1 and $_SESSION['userData']['idrol'] == 1) ||
 							($_SESSION['userData']['idrol'] == 1 and $arrData[$i]['idrol'] != 1) ){
-							$btnEdit = '<button class="btn btn-primary  btn-sm btnEditUsuario" onClick="fntEditUsuario(this,'.$arrData[$i]['idpersona'].')" title="Editar usuario"><i class="fas fa-pencil-alt"></i></button>';
+							$btnEdit = '<button class="btn btn-primary  btn-sm btnEditUsuario" onClick="fntEditUsuario(this,'.$arrData[$i]['dni'].')" title="Editar usuario"><i class="fas fa-pencil-alt"></i></button>';
 						}else{
 							$btnEdit = '<button class="btn btn-secondary btn-sm" disabled ><i class="fas fa-pencil-alt"></i></button>';
 						}
@@ -128,9 +128,9 @@
 					if($_SESSION['permisosMod']['d']){
 						if(($_SESSION['idUser'] == 1 and $_SESSION['userData']['idrol'] == 1) ||
 							($_SESSION['userData']['idrol'] == 1 and $arrData[$i]['idrol'] != 1) and
-							($_SESSION['userData']['idpersona'] != $arrData[$i]['idpersona'] )
+							($_SESSION['userData']['dni'] != $arrData[$i]['dni'] )
 							){
-							$btnDelete = '<button class="btn btn-danger btn-sm btnDelUsuario" onClick="fntDelUsuario('.$arrData[$i]['idpersona'].')" title="Eliminar usuario"><i class="far fa-trash-alt"></i></button>';
+							$btnDelete = '<button class="btn btn-danger btn-sm btnDelUsuario" onClick="fntDelUsuario('.$arrData[$i]['dni'].')" title="Eliminar usuario"><i class="far fa-trash-alt"></i></button>';
 						}else{
 							$btnDelete = '<button class="btn btn-secondary btn-sm" disabled ><i class="far fa-trash-alt"></i></button>';
 						}
@@ -142,9 +142,9 @@
 			die();
 		}
 
-		public function getUsuario($idpersona){
+		public function getUsuario($dni){
 			if($_SESSION['permisosMod']['r']){
-				$idusuario = intval($idpersona);
+				$idusuario = intval($dni);
 				if($idusuario > 0)
 				{
 					$arrData = $this->model->selectUsuario($idusuario);
@@ -164,8 +164,8 @@
 		{
 			if($_POST){
 				if($_SESSION['permisosMod']['d']){
-					$intIdpersona = intval($_POST['idUsuario']);
-					$requestDelete = $this->model->deleteUsuario($intIdpersona);
+					$intdni = intval($_POST['idUsuario']);
+					$requestDelete = $this->model->deleteUsuario($intdni);
 					if($requestDelete)
 					{
 						$arrResponse = array('status' => true, 'msg' => 'Se ha eliminado el usuario');

@@ -31,19 +31,19 @@
 			//BUSCAR ROLE 
 			$sql = "SELECT u.id_usuario,
 			u.persona_dni,
-			p.nombres,
-			p.apellidos,
+			p.nombre,
+			p.apellido,
 			p.telefono,
 			u.user_name,
 			
-			p.nombrefiscal,
-			p.direccionfiscal,
+			
+			p.direccion,
 			r.idrol,
 			r.nombrerol,
 			u.status 
 				FROM usuario u
 				INNER JOIN persona p
-				ON p.idpersona = u.persona_dni
+				ON p.dni = u.persona_dni
 				INNER JOIN rol r
 				ON u.rol_ususario_id_rol_usa = r.idrol
 				WHERE u.id_usuario = $this->intIdUsuario";
