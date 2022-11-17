@@ -81,7 +81,7 @@
                     <label for="exampleSelect1">Puesto</label>
                     <select class="form-control" id="liststatus" name="listpuesto" required="">
                   <?php
-                  while($row = $arr2->fetch_assoc()){               
+                  foreach( $arr2 as $row){               
                     
                     echo "<option value=".$row["id_puesto"].">".$row["nombre_puesto"]."</option>"; 
                     }
@@ -117,7 +117,7 @@
                             <select multiple class="custom-select" name="newhabil[]" >
                               <?php
                             
-                              while($row = $arr3->fetch_assoc()){
+                            foreach( $arr3 as $row){
                             
                               echo "<option value=".$row["id_habilidad"].">".$row["nombre_habilidad"]."</option>";                         
                             

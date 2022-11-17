@@ -35,7 +35,7 @@
                   <tbody>
 <?php
 
-while($row = $arr->fetch_assoc()){
+foreach($arr as $row){
 
 ?>     
                     <tr>

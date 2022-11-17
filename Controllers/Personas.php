@@ -44,11 +44,14 @@ if(empty($_POST['dni']) and empty($_POST['apellido_p']) and empty($_POST['nombre
                 $estudios[2] = 0;
             }
 
-        $new_pers = new PersonasModel($_POST['dni'],$_POST['newexp'],$_POST['listpuesto'],$_POST['nombre_p'],$_POST['apellido_p'],$_POST['email'],$_POST['direc'],$_POST['tel'],$fecha_ing,$_POST['fecha_nac'],1,$_POST['newhabil'],$estudios,$_POST['cursos'],$_POST['titulos']);
+        $new_pers = new PersonasModel();
+        $new_pers->setPersona($_POST['dni'],$_POST['newexp'],$_POST['listpuesto'],$_POST['nombre_p'],$_POST['apellido_p'],$_POST['email'],$_POST['direc'],$_POST['tel'],$fecha_ing,$_POST['fecha_nac'],1,$_POST['newhabil'],$estudios,$_POST['cursos'],$_POST['titulos']);
+        
+        $idPsico= 1;
         $dni_pers = $new_pers->InsertPers();
         $id_est = $new_pers->InsertEstud();
         $id_habl = $new_pers->InsertHabil();
-        $new_pers->InsertLegajo($dni_pers,$_POST['listpuesto'],$id_habl,$id_est);
+        $new_pers->InsertLegajo($dni_pers,$_POST['listpuesto'],$id_habl,$id_est, $idPsico);
         header("Refresh:0; url=personas");
         echo "<script> alert('Todo salio correctamente!! ')</script>";
     }
