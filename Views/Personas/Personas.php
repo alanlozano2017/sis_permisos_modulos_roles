@@ -7,8 +7,14 @@
       <div class="app-title">
         <div>
             <h1><i class="fas fa-user-tag"></i> <?= $data['page_title'] ?>
+            <?php if($_SESSION['permisosMod']['w']){ ?>
                 <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modalFormNuevoPersona"><i class="fa fa-plus-circle" aria-hidden="true"></i> Nuevo</button>
-                </h1>
+                <?php } ?>
+              </h1>
+                
+                    
+                
+                
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
@@ -48,9 +54,17 @@ foreach($arr as $row){
                       </td>
                       <td class="col-1 text-center"> 
                         <div>
+                        <?php if($_SESSION['permisosMod']['u']){ ?>
                           <button class="btn btn-primary  btn-sm  btnEditRol" rl="'1'" title="Editar" type="button" data-toggle="modal" data-target="#modalFormActualizarPersona"><i class="fas fa-pencil-alt"></i></button>
+                        <?php } ?>
+                        
+                          
                           <!--<button class="btn btn-success btn-xs btnEditRol" rl="'1'" id="btnPsico" title="Agregar Psicofisico" type="button" data-toggle="modal" data-id=<?php //echo $row['dni'] ?> data-target="#modalFormNewPsicofisico"><i class="fa fa-cross"></i></button>-->
+                        <?php if($_SESSION['permisosMod']['d']){ ?>
                           <a href="<?= base_url(); ?>/personas?id_elim= <?php echo $row['dni']?>"><button class="btn btn-danger btn-sm btnDelRol" rl="'1'" title="Eliminar" ><i class="far fa-trash-alt"></i></button></a>
+                        <?php } ?>
+
+
                         </div>
                     </td>
                     </tr>

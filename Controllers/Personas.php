@@ -2,6 +2,30 @@
 session_start();
 getModel('PersonasModel');
 
+class Personas extends Controllers{
+    public function __construct()
+    {
+        parent::__construct();
+        
+        //session_regenerate_id(true);
+        if(empty($_SESSION['login']))
+        {
+            header('Location: '.base_url().'/login');
+        }
+        
+        
+    }
+    
+    public function Personas()
+    {
+        if(empty($_SESSION['permisosMod']['r'])){
+            header("Location:".base_url().'/dashboard');
+        }
+        
+        
+    }
+}
+
 $pers = new PersonasModel();
 $pues = new PersonasModel();
 
@@ -64,7 +88,7 @@ if(empty($_POST['dni']) and empty($_POST['apellido_p']) and empty($_POST['nombre
             $data['page_title'] = "PERSONAS <small>Sistema RRHH</small>";
             $data['page_name'] = "personas";
             $data['page_functions_js'] = "functions_personas.js";
-
+            getPermisos(MPERSONAS);
 
 require_once "Views/Personas/Personas.php"; 
 
