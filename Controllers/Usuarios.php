@@ -36,17 +36,17 @@
 					
 					$strEmail = strtolower(strClean($_POST['txtEmail']));
 					$intTipoId = strClean($_POST['listRolid']);
-					$intStatus = strClean($_POST['listStatus']);
+					// $intStatus = strClean($_POST['listStatus']);
 
 					$arrResponse = array("status" => false, "msg" => 'Datos incorrectos '.
-					$idUsuario.''.$strIdentificacion.''.$strEmail.''.$intTipoId.''.$intStatus.'');
+					$idUsuario.''.$strIdentificacion.''.$strEmail.''.$intTipoId.'');
 				}else{ 
 					$idUsuario = intval($_POST['idUsuario']);
 					$strIdentificacion = strClean($_POST['txtIdentificacion']);
 					
 					$strEmail = strtolower(strClean($_POST['txtEmail']));
 					$intTipoId = intval(strClean($_POST['listRolid']));
-					$intStatus = intval(strClean($_POST['listStatus']));
+					// $intStatus = intval(strClean($_POST['listStatus']));
 					// $intTipoId = 4;
 					// $intStatus = 1;
 					$request_user = "";
@@ -60,8 +60,8 @@
 																				
 																				$strEmail,
 																				$strPassword, 
-																				$intTipoId, 
-																				$intStatus );
+																				$intTipoId
+																			);
 						}
 					if($request_user != "exist" && $request_user > 0)
 					{
@@ -80,8 +80,8 @@
 																		
 																		$strEmail,
 																		$strPassword, 
-																		$intTipoId, 
-																		$intStatus);
+																		$intTipoId
+																	);
 						}
 					if($request_user > 0)
 					{

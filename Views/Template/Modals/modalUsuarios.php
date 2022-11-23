@@ -10,7 +10,7 @@
       </div>
       <div class="modal-body">
             <form id="formUsuario" name="formUsuario" class="form-horizontal">
-              <input type="text" id="idUsuario" name="idUsuario" value="">
+              <input style="display: none" type="number" id="idUsuario" name="idUsuario" value="">
               <p class="text-primary">Todos los campos son obligatorios.</p>
 
               <div class="form-row">
@@ -25,34 +25,19 @@
                   <label for="txtEmail">Email</label>
                   <input type="email" class="form-control valid validEmail" id="txtEmail" name="txtEmail" required="">
                 </div>
-              </div>
-              <!-- <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="listRolid">Tipo usuario</label>
-                    <select class="form-control" data-live-search="true" id="listRolid" name="listRolid" required >
-                    </select>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="listStatus">Status</label>
-                    <select class="form-control selectpicker" id="listStatus" name="listStatus" required >
-                        <option value="1" checked>Activo</option>
-                        <option value="2">Inactivo</option>
-                    </select>
-                </div>
-             </div> -->
-             <div class="form-group col-md-6">
+              
+                <!-- <div class="form-group col-md-6">
                     <label for="listRolid">Tipo usuario</label>
                     <input type="text" class="form-control" id="listRolid" name="listRolid" required="" placeholder="2">
-                    <!-- <select class="form-control" data-live-search="true" id="listRolid" name="listRolid" value="2" required >
-                    </select> -->
-                </div>
+               </div> -->
+
+             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="listStatus">Status</label>
-                    <input type="number" class="form-control" id="listStatus" name="listStatus" required="" value="1">
-                    <!-- <label class="form-check-label" for="listStatus">Status</label>
-                    <input class="form-check-input" type="checkbox" id="listStatus" value="1" checked>
-                     -->
+                        <label for="listRolid">Tipo usuario</label>
+                        <select class="form-control" data-live-search="true" id="listRolid" name="listRolid" required >
+                        </select>
                 </div>
+             </div>
              <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="txtPassword">Password</label>

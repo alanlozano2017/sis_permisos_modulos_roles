@@ -73,12 +73,12 @@
                                     
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            <!-- <div class="form-group row">
                                 <label class="col-12" for="status">status</label>
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" id="status" name="status" placeholder="">
                                 </div>
-                            </div>
+                            </div> -->
                             
                         </div>
                         <div class="modal-footer">

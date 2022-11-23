@@ -92,7 +92,7 @@ $(document).on("click","#btnnuevo", function(){
     $('#idmodulo').val('');
     $('#titulo').prop( "disabled", false );
     $('#descripcion').prop( "disabled", false );
-    $('#status').prop( "disabled", false );
+    // $('#status').prop( "disabled", false );
 });
 
 
@@ -105,7 +105,7 @@ function verModulo(idmod){
         $('#titulo_modulo').html('CRUD-Editar Registro');
         $('#titulo').val(data.titulo).prop( "disabled", true );
         $('#descripcion').val(data.descripcion).prop( "disabled", true );
-        $('#status').val(data.status).prop( "disabled", true );
+        // $('#status').val(data.status).prop( "disabled", true );
         $('#idmodulo').val('').prop( "disabled", true );
    
     }); 
@@ -121,7 +121,7 @@ function editar(idmod){
         $('#titulo_modulo').html('CRUD-Editar Registro');
         $('#titulo').val(data.titulo).prop( "disabled", false );
         $('#descripcion').val(data.descripcion).prop( "disabled", false );
-        $('#status').val(data.status).prop( "disabled", false );
+        // $('#status').val(data.status).prop( "disabled", false );
         $('#idmodulo').val(data.idmodulo).prop( "disabled", false );
     }); 
     $("#modalmodulo").modal('show');	

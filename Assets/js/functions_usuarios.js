@@ -62,9 +62,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
         let intTipousuario = document.querySelector('#listRolid').value;
         let strPassword = document.querySelector('#txtPassword').value;
-        let intStatus = document.querySelector('#listStatus').value;
+        // let intStatus = document.querySelector('#listStatus').value;
 
-        if(strIdentificacion == '' || strEmail == '' || intTipousuario == '' || intStatus == '' )
+        if(strIdentificacion == '' || strEmail == '' || intTipousuario == '' )
         {
             swal("Atención", "Todos los campos son obligatorios." , "error");
             return false;
@@ -77,11 +77,18 @@ document.addEventListener('DOMContentLoaded', function(){
                 return false;
             } 
         } 
-        formUsuario = document.querySelector("#formUsuario");
+        // formUsuario = document.querySelector("#formUsuario");
         divLoading.style.display = "flex";
         let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
         let ajaxUrl = base_url+'/Usuarios/setUsuario'; 
         let formData = new FormData(formUsuario);
+        console.log("form data :");
+        for (var pair of formData.entries()) {
+            console.log(pair[0]+ ', ' + pair[1]); 
+        }
+        console.log("id rol :");
+        console.log(intTipousuario);
+
         request.open("POST",ajaxUrl,true);
         request.send(formData);
         request.onreadystatechange = function(){
@@ -94,19 +101,19 @@ document.addEventListener('DOMContentLoaded', function(){
                 {
                     $('#modalFormUsuario').modal("hide");
                     formUsuario.reset();
-                    if(rowTable == ""){
-                        tableUsuarios.api().ajax.reload();
-                    }else{
-                        htmlStatus = intStatus == 1 ? 
-                        '<span class="badge badge-success">Activo</span>' : 
-                        '<span class="badge badge-danger">Inactivo</span>';
+                    // if(rowTable == ""){
+                    //     tableUsuarios.api().ajax.reload();
+                    // }else{
+                    //     htmlStatus = intStatus == 1 ? 
+                    //     '<span class="badge badge-success">Activo</span>' : 
+                    //     '<span class="badge badge-danger">Inactivo</span>';
 
-                        rowTable.cells[1].textContent = strEmail;
+                    //     rowTable.cells[1].textContent = strEmail;
 
-                        rowTable.cells[2].textContent = document.querySelector("#listRolid").selectedOptions[0].text;
-                        rowTable.cells[3].innerHTML = htmlStatus;
-                        rowTable="";
-                    }
+                    //     rowTable.cells[2].textContent = document.querySelector("#listRolid").selectedOptions[0].text;
+                    //     rowTable.cells[3].innerHTML = htmlStatus;
+                    //     rowTable="";
+                    // }
                     
                     swal("Usuarios", objData.msg ,"success");
                     tableUsuarios.api().ajax.reload();
@@ -207,12 +214,12 @@ function fntEditUsuario(element, id_usuario){
                 document.querySelector("#listRolid").value =objData.data.idrol;
                 $('#listRolid').selectpicker('render');
 
-                if(objData.data.status == 1){
-                    document.querySelector("#listStatus").value = 1;
-                }else{
-                    document.querySelector("#listStatus").value = 0;
-                }
-                $('#listStatus').selectpicker('render');
+                // if(objData.data.status == 1){
+                //     document.querySelector("#listStatus").value = 1;
+                // }else{
+                //     document.querySelector("#listStatus").value = 0;
+                // }
+                // $('#listStatus').selectpicker('render');
             }
         }
     
@@ -269,7 +276,7 @@ function openModal()
     document.querySelector('#btnText').innerHTML ="Guardar";
     document.querySelector('#titleModal').innerHTML = "Nuevo Usuario";
     document.querySelector("#formUsuario").reset();
-    document.querySelector("#listStatus").value = 1;
+    // document.querySelector("#listStatus").value = 1;
 
     $('#modalFormUsuario').modal('show');
 }

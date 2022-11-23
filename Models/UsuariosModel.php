@@ -17,14 +17,14 @@
 			parent::__construct();
 		}	
 
-        public function insertUsuario(string $identificacion, string $email, string $password, int $tipoid, int $status){
+        public function insertUsuario(string $identificacion, string $email, string $password, int $tipoid){
 
 			$this->strIdentificacion = $identificacion;
 
 			$this->strEmail = $email;
 			$this->strPassword = $password;
 			$this->intTipoId = $tipoid;
-			$this->intStatus = $status;
+			// $this->intStatus = $status;
 			$return = 0;
 
 			$sql = "SELECT * FROM usuario WHERE 
@@ -34,13 +34,13 @@
 			if(empty($request))
 			{
 				$query_insert  = "INSERT INTO usuario(persona_dni,user_name,user_passw,rol_ususario_id_rol_usa,status) 
-				VALUES(?,?,?,?,?)";
+				VALUES(?,?,?,?,1)";
 	        	$arrData = array($this->strIdentificacion,
         						
         						$this->strEmail,
         						$this->strPassword,
-        						$this->intTipoId,
-        						$this->intStatus);
+        						$this->intTipoId
+        						);
 	        	$request_insert = $this->insert($query_insert,$arrData);
 	        	$return = $request_insert;
 			}else{
@@ -93,7 +93,7 @@
 			return $request;
 		}
 
-		public function updateUsuario(int $idUsuario, string $persona_dni,  string $email, string $password, int $tipoid, int $status){
+		public function updateUsuario(int $idUsuario, string $persona_dni,  string $email, string $password, int $tipoid){
 
 			$this->intIdUsuario = $idUsuario;
 			$this->strIdentificacion = $persona_dni;
@@ -101,7 +101,7 @@
 			$this->strEmail = $email;
 			$this->strPassword = $password;
 			$this->intTipoId = $tipoid;
-			$this->intStatus = $status;
+			// $this->intStatus = $status;
 
 			$sql = "SELECT * FROM usuario WHERE (user_name = '{$this->strEmail}' AND id_usuario != $this->intIdUsuario)
 										  OR (persona_dni = '{$this->strIdentificacion}' AND id_usuario != $this->intIdUsuario) ";
@@ -113,26 +113,25 @@
 				{
 					$sql = "UPDATE usuario 
 							SET persona_dni=?, user_name=?, 
-							user_passw=?, rol_ususario_id_rol_usa=?, status=? 
+							user_passw=?, rol_ususario_id_rol_usa=?
 							WHERE id_usuario = $this->intIdUsuario ";
 
 					$arrData = array($this->strIdentificacion,
 	        						
 	        						$this->strEmail,
 	        						$this->strPassword,
-	        						$this->intTipoId,
-	        						$this->intStatus);
+	        						$this->intTipoId);
 				}else{
 					$sql = "UPDATE usuario 
 							SET persona_dni=?, user_name=?, 
-							rol_ususario_id_rol_usa=?, status=? 
+							rol_ususario_id_rol_usa=?
 							WHERE id_usuario = $this->intIdUsuario ";
 							
 					$arrData = array($this->strIdentificacion,
 	        						
 	        						$this->strEmail,
-	        						$this->intTipoId,
-	        						$this->intStatus);
+	        						$this->intTipoId
+								);
 				}
 				$request = $this->update($sql,$arrData);
 			}else{
