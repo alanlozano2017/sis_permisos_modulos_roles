@@ -11,7 +11,7 @@
       <!-- formularios -->
       <div class="tile">
           <div class="tile-body">
-            <form action="Puestos_controll.php" id="formRol" name="formRol" method="POST">
+            <form action="puestos" id="formRol" name="formRol" method="POST">
             
 
 
@@ -45,7 +45,7 @@
                         <label>Habilidades</label>
                         <select multiple class="custom-select" name="newhabil[]">
                           <?php
-                          while($row = $arr3->fetch_assoc()){
+                          foreach($arr3 as $row){
                             
                             echo "<option value=".$row["id_habilidad"].">".$row["nombre_habilidad"]."</option>";    
                           }

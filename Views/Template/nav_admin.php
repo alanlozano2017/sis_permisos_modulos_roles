@@ -31,7 +31,7 @@
             </ul>
         </li>
         <?php } ?>
-        <?php if(!empty($_SESSION['permisos'][3]['r'])){ ?>
+        <?php if(!empty($_SESSION['permisos'][5]['r'])){ ?>
         <li class="treeview">
             <a class="app-menu__item" href="#" data-toggle="treeview">
                 <i class="app-menu__icon fas fa-table" aria-hidden="true"></i>
@@ -47,7 +47,7 @@
         </li>
         
         <?php } ?>
-        <?php if(!empty($_SESSION['permisos'][4]['r']) || !empty($_SESSION['permisos'][6]['r'])){ ?>
+        <?php if(!empty($_SESSION['permisos'][21]['r']) || !empty($_SESSION['permisos'][6]['r'])){ ?>
         <li class="treeview">
             <a class="app-menu__item" href="#" data-toggle="treeview">
                 <i class="app-menu__icon fas fa-chart-pie" aria-hidden="true"></i>
@@ -55,10 +55,10 @@
                 <i class="treeview-indicator fa fa-angle-right"></i>
             </a>
             <ul class="treeview-menu">
-                <?php if(!empty($_SESSION['permisos'][4]['r'])){ ?>
+                <?php if(!empty($_SESSION['permisos'][21]['r'])){ ?>
                     <li><a class="treeview-item" href="<?= base_url(); ?>/personas"><i class="icon fa fa-circle-o"></i> Informes Personas</a></li>
                 <?php } ?>
-                <?php if(!empty($_SESSION['permisos'][6]['r'])){ ?>
+                <?php if(!empty($_SESSION['permisos'][21]['r'])){ ?>
                 <li><a class="treeview-item" href="<?= base_url(); ?>/puestos"><i class="icon fa fa-circle-o"></i>Informes Puestos</a></li>
                 <?php } ?>
                 <li><a class="treeview-item" href="<?= base_url(); ?>/calificaciones"><i class="icon fa fa-circle-o"></i> Calificaciones</a></li>

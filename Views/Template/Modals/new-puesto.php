@@ -11,7 +11,7 @@
       <!-- formularios -->
       <div class="tile">
           <div class="tile-body">
-            <form action="Puestos_controll.php" id="formRol" name="formRol" method="post">
+            <form action="puestos" id="formRol" name="formRol" method="post">
             
 
 
@@ -43,7 +43,7 @@
                         <select multiple class="custom-select" name="newhabil[]" >
                           <?php
                          
-                          while($row = $arr2->fetch_assoc()){
+                         foreach($arr2 as $row){
                         
                           echo "<option value=".$row["id_habilidad"].">".$row["nombre_habilidad"]."</option>";                         
                         

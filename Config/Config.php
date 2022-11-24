@@ -35,11 +35,11 @@
 	define ('MUSUARIOS',"2");
 
 	define ('MMODULOS',"3");
-	define ('MPERSONAS',"4");
-	define ('MPEDIDOS',"5");
-	define ('MCATEGORIAS',"6");
-
-
+	define ('MROLES',"4");
+	define ('MPERSONAS',"5");
+	define ('MPUESTOS',"6");
+	define ('MCALIFICACIONES',"20");
+	define ('MINFORMES',"21");
 	//roles
 	define ('RADMINISTRADOR', "1");
 	define ('RCLIENTES', "7");
