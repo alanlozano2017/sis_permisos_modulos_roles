@@ -11,17 +11,17 @@
       <!-- formularios -->
       <div class="tile">
           <div class="tile-body">
-            <form action="Calificacion_controll.php" id="formRol" name="formRol" method="POST">
+            <form action="calificaciones" id="formRol" name="formRol" method="POST">
             
 
 
 
                     <div class="form-group">
-                            <label for="exampleSelect1">Puntualidad</label>
-                            <select class="form-control" id="liststatus" name="legajo" required="">
+                            <label for="exampleSelect1">ID legajo</label>
+                            <select class="form-control" id="liststatus" name="legajo" required="required">
                             <?php
                             
-                            while($row = $arr2->fetch_assoc()){                          
+                            foreach($arr2 as $row){                          
                                 echo '<option value="'.$row['id_legajo'].'">'.$row['id_legajo'].'</option>';  
                               
                               }
@@ -34,7 +34,7 @@
                             <div class="col-sm-6">
                             <div class="form-group">
                             <label for="exampleSelect1">Puntualidad</label>
-                            <select class="form-control" id="liststatus" name="puntualidad" required="">
+                            <select class="form-control" id="liststatus" name="puntualidad" required="required">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -46,7 +46,7 @@
                             <div class="col-sm-6">
                             <div class="form-group">
                             <label for="exampleSelect1">Cumplimiento de Normas</label>
-                            <select class="form-control" id="liststatus" name="c_normas" required="">
+                            <select class="form-control" id="liststatus" name="c_normas" required="required">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -62,7 +62,7 @@
                             <div class="col-3">
                             <div class="form-group">
                             <label for="exampleSelect1">PP</label>
-                            <select class="form-control" id="liststatus" name="p_personal" required="">
+                            <select class="form-control" id="liststatus" name="p_personal" required="required">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -74,7 +74,7 @@
                             <div class="col-4">
                             <div class="form-group">
                             <label for="exampleSelect1">Compañerismo</label>
-                            <select class="form-control" id="liststatus" name="companierismo" required="">
+                            <select class="form-control" id="liststatus" name="companierismo" required="required">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -86,7 +86,7 @@
                             <div class="col-5">
                             <div class="form-group">
                             <label for="exampleSelect1">APT</label>
-                            <select class="form-control" id="liststatus" name="apt" required="">
+                            <select class="form-control" id="liststatus" name="apt" required="required">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -101,7 +101,7 @@
                             <div class="col-sm-6">
                             <div class="form-group">
                             <label for="exampleSelect1">Responsabilidiad</label>
-                            <select class="form-control" id="liststatus" name="responsabilidad" required="">
+                            <select class="form-control" id="liststatus" name="responsabilidad" required="required">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -113,7 +113,7 @@
                             <div class="col-sm-6">
                             <div class="form-group">
                             <label for="exampleSelect1">Iniciativa</label>
-                            <select class="form-control" id="liststatus" name="iniciativa" required="">
+                            <select class="form-control" id="liststatus" name="iniciativa" required="required">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>

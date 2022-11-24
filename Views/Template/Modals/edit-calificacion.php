@@ -11,7 +11,7 @@
       <!-- formularios -->
       <div class="tile">
           <div class="tile-body">
-            <form action="Calificacion_controll.php" id="formRol" name="formRol" method="POST">
+            <form action="calificaciones" id="formRol" name="formRol" method="POST">
             
 
 
@@ -19,7 +19,7 @@
     
                   <div class="form-group">
                     <label class="control-label">N° legajo</label>
-                    <input class="form-control" type="number" id="txtlegajo" name="legajo" >
+                    <input class="form-control" type="number" id="txtlegajo" name="legajo" required="required" >
                   </div>
       <hr>
       <div class="row">
